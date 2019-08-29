@@ -17,12 +17,16 @@ class RatingAlertController: UIAlertController {
         return ratingPickerView
     }()
 
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         makeSubviews()
         makeConstraints()
         makeAlertAction()
     }
+
+    // MARK: - Setting
 
     private func makeAlertAction() {
         let ratingAlertAction = UIAlertAction(title: "선택", style: .default, handler: nil)

@@ -8,13 +8,17 @@
 
 import UIKit
 
-class RequestAPI {
+final class RequestAPI {
     static let shared: RequestAPI = RequestAPI()
 
+    // MARK: - Property
+
+    /// * Movie API 요청 시 반응하는 MVC 델리게이션 변수
     weak var delegate: RequestMovieAPIDelegate?
 
     func requestMovieData(rating: Int, completion: @escaping (MovieResponse?) -> Void) {
         delegate?.movieRequestDidBegin(self)
+        /// * API 요청 시 사용하는 URL String Format
         let dataURLString: String = "https://yts.lt/api/v2/list_movies.json?minimum_rating=\(rating)"
 
         guard let dataURL: URL = URL(string: dataURLString) else {
@@ -22,6 +26,7 @@ class RequestAPI {
             delegate?.movieRequestDidError(self, errorString)
             return
         }
+
         let session: URLSession = URLSession(configuration: .default)
         let dataTask: URLSessionDataTask = session.dataTask(with: dataURL) { data, _, error in
 

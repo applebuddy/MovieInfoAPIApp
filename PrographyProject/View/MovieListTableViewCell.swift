@@ -30,11 +30,10 @@ class MovieListTableViewCell: UITableViewCell {
         if isSelected {
             isSelected.toggle()
         }
-        // Configure the view for the selected state
     }
 
     private func setMovieTitleLabel() {
-        movieTitleLabel.numberOfLines = 2
+        movieTitleLabel.titleNumberOfLines()
         movieTitleLabel.adjustFontSizeWhenTruncated()
     }
 

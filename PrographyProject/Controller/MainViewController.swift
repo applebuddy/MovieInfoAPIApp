@@ -15,7 +15,22 @@ class MainViewController: UIViewController {
     @IBOutlet private var presentToMovieListButton: UIButton!
     @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
 
+    // MARK: - UI
+
+    private let ratingAlertController: RatingAlertController = {
+        let ratingAlertController = RatingAlertController(title: "별점 선택", message: "별점을 선택해주시기 바랍니다.", preferredStyle: .actionSheet)
+        return ratingAlertController
+    }()
+
     // MARK: - Property
+
+    fileprivate struct RatingPickerViewData {
+        static let componentCount = 1
+        static let rowCount = 10
+        static let defaultRowIndex = 5
+    }
+
+    private var selectedRatingPickerViewRowIndex = RatingPickerViewData.defaultRowIndex
 
     private var isAPIDataRequested: Bool = false {
         willSet {
@@ -30,17 +45,6 @@ class MainViewController: UIViewController {
             }
         }
     }
-
-    // MARK: - UI
-
-    private let ratingAlertController: RatingAlertController = {
-        let ratingAlertController = RatingAlertController(title: "별점 선택", message: "별점을 선택해주시기 바랍니다.", preferredStyle: .actionSheet)
-        return ratingAlertController
-    }()
-
-    // MARK: - Property
-
-    private var selectedRatingIndex: Int = 5
 
     // MARK: - Life Cycle
 
@@ -68,7 +72,7 @@ class MainViewController: UIViewController {
     private func setRatingAlertController() {
         ratingAlertController.ratingPickerView.delegate = self
         ratingAlertController.ratingPickerView.dataSource = self
-        ratingAlertController.ratingPickerView.selectRow(selectedRatingIndex, inComponent: 0, animated: false)
+        ratingAlertController.ratingPickerView.selectRow(RatingPickerViewData.defaultRowIndex, inComponent: 0, animated: false)
     }
 
     private func setPresentToMovieListButton() {
@@ -91,10 +95,10 @@ class MainViewController: UIViewController {
     }
 
     @IBAction private func presentToMovieListView(_: UIButton) {
-        RequestAPI.shared.requestMovieData(rating: selectedRatingIndex) { movieData in
+        RequestAPI.shared.requestMovieData(rating: RatingPickerViewData.defaultRowIndex) { movieData in
             guard let movieData = movieData else { return }
 
-            MovieData.shared.setMovieAPIData(movieData: movieData)
+            MovieCommonData.shared.setMovieAPIData(movieData: movieData)
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: SegueIdentifier.goToMovieList, sender: nil)
             }
@@ -105,18 +109,18 @@ class MainViewController: UIViewController {
 extension MainViewController: UIPickerViewDelegate {
     func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
         ratingSelectButton.setTitleColor(UIColor.black, for: .normal)
-        selectedRatingIndex = row
+        selectedRatingPickerViewRowIndex = row
         ratingSelectButton.setTitle(" \(row)점", for: .normal)
     }
 }
 
 extension MainViewController: UIPickerViewDataSource {
     func numberOfComponents(in _: UIPickerView) -> Int {
-        return 1
+        return RatingPickerViewData.componentCount
     }
 
     func pickerView(_: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
-        return 10
+        return RatingPickerViewData.rowCount
     }
 
     func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {

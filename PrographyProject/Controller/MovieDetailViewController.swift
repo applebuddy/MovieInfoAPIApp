@@ -15,7 +15,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet private var movieImageView: UIImageView!
     @IBOutlet private var ratingLabel: UILabel!
 
-    // MARK: - Life Cycle¡
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +28,12 @@ class MovieDetailViewController: UIViewController {
     // MARK: - Setting
 
     private func setTitleLabel() {
-        titleLabel.numberOfLines = 2
+        titleLabel.titleNumberOfLines()
         titleLabel.adjustFontSizeWhenTruncated()
     }
 
     private func setLabelWithMovieData() {
-        guard let movieData = MovieData.shared.getSelectedMovieData() else { return }
+        guard let movieData = MovieCommonData.shared.getSelectedMovieData() else { return }
         titleLabel.text = movieData.title
         ratingLabel.text = "평점 : \(movieData.rating)"
     }

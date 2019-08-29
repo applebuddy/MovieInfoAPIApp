@@ -8,15 +8,26 @@
 
 import UIKit
 
-class MovieData {
-    static let shared: MovieData = MovieData()
+final class MovieCommonData {
+    static let shared: MovieCommonData = MovieCommonData()
+
+    // MARK: - Property
 
     private var movieAPIData: MovieResponse?
     private var selectedMovieData: Movie?
 
+    // MARK: - Setting
+
     func setMovieAPIData(movieData: MovieResponse) {
         movieAPIData = movieData
     }
+
+    func setSelectedMovieData(index: Int) {
+        guard let movieData = movieAPIData?.data?.movies?[index] else { return }
+        selectedMovieData = movieData
+    }
+
+    // MARK: - Getting
 
     func getMoviesData() -> [Movie]? {
         guard let moviesData = movieAPIData?.data?.movies else { return nil }
@@ -30,10 +41,5 @@ class MovieData {
 
     func getSelectedMovieData() -> Movie? {
         return selectedMovieData
-    }
-
-    func setSelectedMovieData(index: Int) {
-        guard let movieData = movieAPIData?.data?.movies?[index] else { return }
-        selectedMovieData = movieData
     }
 }
