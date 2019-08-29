@@ -39,7 +39,7 @@ class MainViewController: UIViewController {
     private func configurePresentToMovieListButton() {
         presentToMovieListButton.layer.cornerRadius = 10
         presentToMovieListButton.layer.shadowRadius = 3
-        presentToMovieListButton.layer.shadowOffset = .zero
+        presentToMovieListButton.layer.shadowOffset = CGSize(width: 0, height: 1)
         presentToMovieListButton.layer.shadowOpacity = 1
     }
 
