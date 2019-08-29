@@ -4,7 +4,7 @@
 //
 //  Created by MinKyeongTae on 29/08/2019.
 //  Copyright © 2019 MinKyeongTae. All rights reserved.
-//
+//  * Now Processing Branch : Feature/AddMovieThumbnail
 
 import UIKit
 
