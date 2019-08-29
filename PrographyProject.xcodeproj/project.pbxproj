@@ -18,6 +18,10 @@
 		07FB32B32317D9F2006B764D /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32B22317D9F2006B764D /* MovieDetailViewController.swift */; };
 		07FB32B72317DA3B006B764D /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32B62317DA3B006B764D /* MovieData.swift */; };
 		07FB32BC2317EADB006B764D /* RatingPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32BB2317EADB006B764D /* RatingPickerView.swift */; };
+		07FB32BF2317F774006B764D /* MovieListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32BE2317F774006B764D /* MovieListTableViewCell.swift */; };
+		07FB32C12317F7E2006B764D /* CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32C02317F7E2006B764D /* CellIdentifier.swift */; };
+		07FB32C32317F83B006B764D /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32C22317F83B006B764D /* SegueIdentifier.swift */; };
+		07FB32C52317FB19006B764D /* CellHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32C42317FB19006B764D /* CellHeight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		07FB32B22317D9F2006B764D /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		07FB32B62317DA3B006B764D /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		07FB32BB2317EADB006B764D /* RatingPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPickerView.swift; sourceTree = "<group>"; };
+		07FB32BE2317F774006B764D /* MovieListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewCell.swift; sourceTree = "<group>"; };
+		07FB32C02317F7E2006B764D /* CellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifier.swift; sourceTree = "<group>"; };
+		07FB32C22317F83B006B764D /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
+		07FB32C42317FB19006B764D /* CellHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHeight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				07FB32822317D6E7006B764D /* AppDelegate.swift */,
-				07FB32B82317E168006B764D /* View */,
 				07FB32B42317DA08006B764D /* Model */,
 				07FB32B52317DA11006B764D /* ViewController */,
-				07FB32862317D6E7006B764D /* Main.storyboard */,
-				07FB32892317D6E8006B764D /* Assets.xcassets */,
-				07FB328B2317D6E8006B764D /* LaunchScreen.storyboard */,
+				07FB32B82317E168006B764D /* View */,
+				07FB32BD2317F41F006B764D /* SupportingFiles */,
 				07FB328E2317D6E8006B764D /* Info.plist */,
 			);
 			path = PrographyProject;
@@ -139,6 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				07FB32B62317DA3B006B764D /* MovieData.swift */,
+				07FB32C02317F7E2006B764D /* CellIdentifier.swift */,
+				07FB32C22317F83B006B764D /* SegueIdentifier.swift */,
+				07FB32C42317FB19006B764D /* CellHeight.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,8 +166,19 @@
 			isa = PBXGroup;
 			children = (
 				07FB32BB2317EADB006B764D /* RatingPickerView.swift */,
+				07FB32BE2317F774006B764D /* MovieListTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		07FB32BD2317F41F006B764D /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				07FB32862317D6E7006B764D /* Main.storyboard */,
+				07FB32892317D6E8006B764D /* Assets.xcassets */,
+				07FB328B2317D6E8006B764D /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,8 +315,12 @@
 				07FB32B32317D9F2006B764D /* MovieDetailViewController.swift in Sources */,
 				07FB32B12317D9E5006B764D /* MovieListViewController.swift in Sources */,
 				07FB32852317D6E7006B764D /* MainViewController.swift in Sources */,
+				07FB32C12317F7E2006B764D /* CellIdentifier.swift in Sources */,
+				07FB32BF2317F774006B764D /* MovieListTableViewCell.swift in Sources */,
 				07FB32B72317DA3B006B764D /* MovieData.swift in Sources */,
+				07FB32C52317FB19006B764D /* CellHeight.swift in Sources */,
 				07FB32832317D6E7006B764D /* AppDelegate.swift in Sources */,
+				07FB32C32317F83B006B764D /* SegueIdentifier.swift in Sources */,
 				07FB32BC2317EADB006B764D /* RatingPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

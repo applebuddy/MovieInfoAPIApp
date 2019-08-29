@@ -16,7 +16,10 @@ class MainViewController: UIViewController {
 
     // MARK: - UI
 
-    let ratingAlertController = RatingAlertController(title: "별점을 선택해주세요.", message: "별점을 선택해주시기 바랍니다.", preferredStyle: .actionSheet)
+    let ratingAlertController: RatingAlertController = {
+        let ratingAlertController = RatingAlertController(title: "별점 선택", message: "별점을 선택해주시기 바랍니다.", preferredStyle: .actionSheet)
+        return ratingAlertController
+    }()
 
     // MARK: - Life Cycle
 
@@ -52,7 +55,9 @@ class MainViewController: UIViewController {
         presentRatingPickerView()
     }
 
-    @IBAction func presentToMovieListView(_: UIButton) {}
+    @IBAction func presentToMovieListView(_: UIButton) {
+        performSegue(withIdentifier: SegueIdentifier.goToMovieList, sender: nil)
+    }
 }
 
 extension MainViewController: UIPickerViewDelegate {

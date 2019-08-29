@@ -9,19 +9,45 @@
 import UIKit
 
 class MovieListViewController: UIViewController {
+    // MARK: - Outlet UI
+
+    @IBOutlet var movieListTableView: UITableView!
+
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        makeMovieListTableView()
         // Do any additional setup after loading the view.
     }
 
-    /*
-     // MARK: - Navigation
+    // MARK: - Setting
 
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
+    func makeMovieListTableView() {
+        movieListTableView.dataSource = self
+        movieListTableView.delegate = self
+    }
+}
+
+extension MovieListViewController: UITableViewDataSource {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return 10
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let movieListCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.movieListTableViewCell, for: indexPath) as? MovieListTableViewCell else { return UITableViewCell() }
+
+        return movieListCell
+    }
+}
+
+extension MovieListViewController: UITableViewDelegate {
+    func tableView(_: UITableView, didSelectRowAt _: IndexPath) {
+        performSegue(withIdentifier: SegueIdentifier.goToMovieDetail, sender: nil)
+    }
+
+    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
+        return CellHeight.movieListCell
+    }
 }
