@@ -13,7 +13,6 @@ class RatingAlertController: UIAlertController {
 
     let ratingPickerView: UIPickerView = {
         let ratingPickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        ratingPickerView.isUserInteractionEnabled = true
         return ratingPickerView
     }()
 

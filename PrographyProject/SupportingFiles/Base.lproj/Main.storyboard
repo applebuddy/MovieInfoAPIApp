@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie-->
+        <!--Movie Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="PrographyProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,7 +70,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movie" id="DOb-qy-UyR"/>
+                    <navigationItem key="navigationItem" title="Movie Search" id="DOb-qy-UyR"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="Mv3-RD-nYz" id="98g-8o-Npq"/>
                         <outlet property="presentToMovieListButton" destination="Owx-iw-Gyw" id="p4p-gg-awA"/>
