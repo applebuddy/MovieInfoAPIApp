@@ -37,8 +37,8 @@ struct DataClass: Codable {
 // MARK: - Movie
 
 struct Movie: Codable {
-    let title: String?
-    let rating: Double?
+    let title: String
+    let rating: Double
 
     enum CodingKeys: String, CodingKey {
         case title, rating

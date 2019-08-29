@@ -11,15 +11,16 @@ import UIKit
 class MovieListTableViewCell: UITableViewCell {
     // MARK: - IBOutlet UI
 
-    @IBOutlet var movieImageView: UIImageView!
-    @IBOutlet var movieTitleLabel: UILabel!
-    @IBOutlet var movieRatingLabel: UILabel!
+    @IBOutlet private var movieImageView: UIImageView!
+    @IBOutlet private var movieTitleLabel: UILabel!
+    @IBOutlet private var movieRatingLabel: UILabel!
 
     // MARK: - Init
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        setMovieTitleLabel()
     }
 
     // MARK: - Setting
@@ -29,6 +30,15 @@ class MovieListTableViewCell: UITableViewCell {
         if isSelected {
             isSelected.toggle()
         }
-        // Configure the view for the selected state
+    }
+
+    private func setMovieTitleLabel() {
+        movieTitleLabel.titleNumberOfLines()
+        movieTitleLabel.adjustFontSizeWhenTruncated()
+    }
+
+    func configureCell(movieData: Movie) {
+        movieTitleLabel.text = "\(movieData.title)"
+        movieRatingLabel.text = "평점 : \(movieData.rating)"
     }
 }

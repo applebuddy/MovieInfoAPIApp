@@ -13,9 +13,10 @@ class RatingAlertController: UIAlertController {
 
     let ratingPickerView: UIPickerView = {
         let ratingPickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        ratingPickerView.isUserInteractionEnabled = true
         return ratingPickerView
     }()
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,16 +25,18 @@ class RatingAlertController: UIAlertController {
         makeAlertAction()
     }
 
-    func makeAlertAction() {
+    // MARK: - Setting
+
+    private func makeAlertAction() {
         let ratingAlertAction = UIAlertAction(title: "선택", style: .default, handler: nil)
         addAction(ratingAlertAction)
     }
 
-    func makeSubviews() {
+    private func makeSubviews() {
         view.addSubview(ratingPickerView)
     }
 
-    func makeConstraints() {
+    private func makeConstraints() {
         ratingPickerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             ratingPickerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50),

@@ -9,22 +9,29 @@
 import UIKit
 
 class MovieListViewController: UIViewController {
-    // MARK: - Outlet UI
+    // MARK: - IBOutlet UI
 
-    @IBOutlet var movieListTableView: UITableView!
+    @IBOutlet private var movieListTableView: UITableView!
+
+    // MARK: - Property
+
+    /// * MovieListTableViewCell Type Property Data
+    fileprivate struct CellData {
+        static let defaultRowCount = 10
+    }
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        makeMovieListTableView()
+        setMovieListTableView()
         // Do any additional setup after loading the view.
     }
 
     // MARK: - Setting
 
-    func makeMovieListTableView() {
+    private func setMovieListTableView() {
         movieListTableView.dataSource = self
         movieListTableView.delegate = self
     }
@@ -32,18 +39,21 @@ class MovieListViewController: UIViewController {
 
 extension MovieListViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 10
+        guard let moviesData = MovieCommonData.shared.getMoviesData() else { return CellData.defaultRowCount }
+        return moviesData.count > CellData.defaultRowCount ? CellData.defaultRowCount : moviesData.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let movieListCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.movieListTableViewCell, for: indexPath) as? MovieListTableViewCell else { return UITableViewCell() }
-
+        guard let movieListCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.movieListTableViewCell, for: indexPath) as? MovieListTableViewCell,
+            let movieData = MovieCommonData.shared.getMovieAPIData(index: indexPath.row) else { return UITableViewCell() }
+        movieListCell.configureCell(movieData: movieData)
         return movieListCell
     }
 }
 
 extension MovieListViewController: UITableViewDelegate {
-    func tableView(_: UITableView, didSelectRowAt _: IndexPath) {
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        MovieCommonData.shared.setSelectedMovieData(index: indexPath.row)
         performSegue(withIdentifier: SegueIdentifier.goToMovieDetail, sender: nil)
     }
 
