@@ -8,52 +8,45 @@
 
 import UIKit
 
-enum APIDataType {
-    case movies
-    case movie
-}
-
 class RequestAPI {
     static let shared: RequestAPI = RequestAPI()
 
-    private var baseURL = "​https://yts.lt/api/v2/list_movies.json?"
-    private var subURL = ""
+    weak var delegate: RequestMovieAPIDelegate?
 
-    func requestMovieData(rating: Int, dataType: APIDataType, completion: @escaping (MovieResponse?, Bool) -> Void) {
-        subURL = "minimum_rating=\(rating)"
-        let dataURLString = "\(baseURL)\(subURL)"
+    func requestMovieData(rating: Int, completion: @escaping (MovieResponse?) -> Void) {
+        delegate?.movieRequestDidBegin(self)
+        let dataURLString: String = "https://yts.lt/api/v2/list_movies.json?minimum_rating=\(rating)"
 
-        guard let dataURL = URL(string: dataURLString) else {
-            debugPrint("Couldn't get dataURL")
+        guard let dataURL: URL = URL(string: dataURLString) else {
+            let errorString = "couldn't get URL data"
+            delegate?.movieRequestDidError(self, errorString)
             return
         }
-
         let session: URLSession = URLSession(configuration: .default)
         let dataTask: URLSessionDataTask = session.dataTask(with: dataURL) { data, _, error in
 
             if let error = error {
-                debugPrint("datatask error Occurred: \(error.localizedDescription)")
-                completion(nil, false)
+                let errorString = "datatask error Occurred: \(error.localizedDescription)"
+                self.delegate?.movieRequestDidError(self, errorString)
+                completion(nil)
                 return
             }
 
             guard let data = data else {
-                debugPrint("data error Occurred")
-                completion(nil, false)
+                let errorString = "data error Occurred"
+                self.delegate?.movieRequestDidError(self, errorString)
+                completion(nil)
                 return
             }
 
             do {
-                switch dataType {
-                case .movie:
-                    completion(nil, false)
-                case .movies:
-                    let moviesAPIResponse: MovieResponse = try JSONDecoder().decode(MovieResponse.self, from: data)
-                    completion(moviesAPIResponse, true)
-                }
+                self.delegate?.movieRequestDidFinished(self)
+                let moviesAPIResponse: MovieResponse = try JSONDecoder().decode(MovieResponse.self, from: data)
+                completion(moviesAPIResponse)
             } catch {
-                debugPrint("API Request Failed : \(error.localizedDescription)")
-                completion(nil, false)
+                let errorString = "API Request Failed : \(error.localizedDescription)"
+                self.delegate?.movieRequestDidError(self, errorString)
+                completion(nil)
             }
         }
         dataTask.resume()

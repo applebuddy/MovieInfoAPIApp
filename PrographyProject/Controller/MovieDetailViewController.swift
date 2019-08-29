@@ -19,17 +19,22 @@ class MovieDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTitleLabel()
+        setLabelWithMovieData()
 
         // Do any additional setup after loading the view.
     }
 
-    /*
-     // MARK: - Navigation
+    // MARK: - Setting
 
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
+    private func setTitleLabel() {
+        titleLabel.numberOfLines = 2
+        titleLabel.adjustFontSizeWhenTruncated()
+    }
+
+    private func setLabelWithMovieData() {
+        guard let movieData = MovieData.shared.getSelectedMovieData() else { return }
+        titleLabel.text = movieData.title
+        ratingLabel.text = "평점 : \(movieData.rating)"
+    }
 }

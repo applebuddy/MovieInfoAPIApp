@@ -18,13 +18,13 @@ class MovieListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        makeMovieListTableView()
+        setMovieListTableView()
         // Do any additional setup after loading the view.
     }
 
     // MARK: - Setting
 
-    private func makeMovieListTableView() {
+    private func setMovieListTableView() {
         movieListTableView.dataSource = self
         movieListTableView.delegate = self
     }
@@ -32,18 +32,21 @@ class MovieListViewController: UIViewController {
 
 extension MovieListViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 10
+        guard let moviesData = MovieData.shared.getMoviesData() else { return 10 }
+        return moviesData.count > 10 ? 10 : moviesData.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let movieListCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.movieListTableViewCell, for: indexPath) as? MovieListTableViewCell else { return UITableViewCell() }
-
+        guard let movieListCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.movieListTableViewCell, for: indexPath) as? MovieListTableViewCell,
+            let movieData = MovieData.shared.getMovieAPIData(index: indexPath.row) else { return UITableViewCell() }
+        movieListCell.configureCell(movieData: movieData)
         return movieListCell
     }
 }
 
 extension MovieListViewController: UITableViewDelegate {
-    func tableView(_: UITableView, didSelectRowAt _: IndexPath) {
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        MovieData.shared.setSelectedMovieData(index: indexPath.row)
         performSegue(withIdentifier: SegueIdentifier.goToMovieDetail, sender: nil)
     }
 

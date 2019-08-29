@@ -19,7 +19,8 @@ class MovieListTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        setMovieTitleLabel()
     }
 
     // MARK: - Setting
@@ -30,5 +31,15 @@ class MovieListTableViewCell: UITableViewCell {
             isSelected.toggle()
         }
         // Configure the view for the selected state
+    }
+
+    private func setMovieTitleLabel() {
+        movieTitleLabel.numberOfLines = 2
+        movieTitleLabel.adjustFontSizeWhenTruncated()
+    }
+
+    func configureCell(movieData: Movie) {
+        movieTitleLabel.text = "\(movieData.title)"
+        movieRatingLabel.text = "평점 : \(movieData.rating)"
     }
 }

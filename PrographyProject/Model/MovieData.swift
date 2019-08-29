@@ -2,45 +2,38 @@
 //  MovieData.swift
 //  PrographyProject
 //
-//  Created by MinKyeongTae on 29/08/2019.
+//  Created by MinKyeongTae on 30/08/2019.
 //  Copyright © 2019 MinKyeongTae. All rights reserved.
 //
 
 import UIKit
 
-// MARK: - MovieResponse
+class MovieData {
+    static let shared: MovieData = MovieData()
 
-struct MovieResponse: Codable {
-    let status: String?
-    let statusMessage: String?
-    let data: DataClass?
+    private var movieAPIData: MovieResponse?
+    private var selectedMovieData: Movie?
 
-    enum CodingKeys: String, CodingKey {
-        case status, data
-        case statusMessage = "status_message"
+    func setMovieAPIData(movieData: MovieResponse) {
+        movieAPIData = movieData
     }
-}
 
-// MARK: - DataClass
-
-struct DataClass: Codable {
-    let movieCount: Int?
-    let limit: Int?
-    let movies: [Movie]?
-
-    enum CodingKeys: String, CodingKey {
-        case movieCount = "movie_count"
-        case limit, movies
+    func getMoviesData() -> [Movie]? {
+        guard let moviesData = movieAPIData?.data?.movies else { return nil }
+        return moviesData
     }
-}
 
-// MARK: - Movie
+    func getMovieAPIData(index: Int) -> Movie? {
+        guard let movieData = movieAPIData?.data?.movies?[index] else { return nil }
+        return movieData
+    }
 
-struct Movie: Codable {
-    let title: String?
-    let rating: Double?
+    func getSelectedMovieData() -> Movie? {
+        return selectedMovieData
+    }
 
-    enum CodingKeys: String, CodingKey {
-        case title, rating
+    func setSelectedMovieData(index: Int) {
+        guard let movieData = movieAPIData?.data?.movies?[index] else { return }
+        selectedMovieData = movieData
     }
 }
