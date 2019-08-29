@@ -36,9 +36,11 @@ class MainViewController: UIViewController {
         willSet {
             DispatchQueue.main.async {
                 if newValue {
+                    self.presentToMovieListButton.isEnabled = false
                     self.activityIndicatorView.isHidden = true
                     self.activityIndicatorView.startAnimating()
                 } else {
+                    self.presentToMovieListButton.isEnabled = true
                     self.activityIndicatorView.isHidden = false
                     self.activityIndicatorView.stopAnimating()
                 }
@@ -82,26 +84,42 @@ class MainViewController: UIViewController {
         presentToMovieListButton.layer.shadowOpacity = 1
     }
 
+    // MARK: - Event
+
     // MARK: Present
 
     private func presentRatingPickerView() {
         present(ratingAlertController, animated: true, completion: nil)
     }
 
-    // MARK: IBAction
+    // MARK: Check
+
+    private func isRatingSelectButtonSelected() -> Bool {
+        if ratingSelectButton.titleColor(for: .normal) == .black {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    // MARK: - IBAction
 
     @IBAction private func ratingSelectButtonPressed(_: UIButton) {
         presentRatingPickerView()
     }
 
     @IBAction private func presentToMovieListView(_: UIButton) {
-        RequestAPI.shared.requestMovieData(rating: selectedRatingPickerViewRowIndex) { movieData in
-            guard let movieData = movieData else { return }
+        if isRatingSelectButtonSelected() {
+            RequestAPI.shared.requestMovieData(rating: selectedRatingPickerViewRowIndex) { movieData in
+                guard let movieData = movieData else { return }
 
-            MovieCommonData.shared.setMovieAPIData(movieData: movieData)
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: SegueIdentifier.goToMovieList, sender: nil)
+                MovieCommonData.shared.setMovieAPIData(movieData: movieData)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: SegueIdentifier.goToMovieList, sender: nil)
+                }
             }
+        } else {
+            // present AlertController requesting setting
         }
     }
 }
@@ -140,5 +158,6 @@ extension MainViewController: RequestMovieAPIDelegate {
     func movieRequestDidError(_: RequestAPI, _ errorDescription: String) {
         isAPIDataRequested = false
         debugPrint(errorDescription)
+        // present AlertController about Error
     }
 }
