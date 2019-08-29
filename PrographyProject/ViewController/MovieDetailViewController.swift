@@ -9,6 +9,12 @@
 import UIKit
 
 class MovieDetailViewController: UIViewController {
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var movieImageView: UIImageView!
+    @IBOutlet var ratingLabel: UILabel!
+
+    // MARK: - Life Cycle¡
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

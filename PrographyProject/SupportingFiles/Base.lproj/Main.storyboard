@@ -98,7 +98,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r75-WX-6Mz">
                                                     <rect key="frame" x="30" y="15" width="354" height="100"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MT9-t1-leS">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="MT9-t1-leS">
                                                             <rect key="frame" x="0.0" y="0.0" width="70" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="MuM-ej-a88"/>
@@ -183,10 +183,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PLZ-qp-kER">
-                                <rect key="frame" x="20" y="174" width="100" height="150"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="PLZ-qp-kER">
+                                <rect key="frame" x="20" y="174" width="100" height="143"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="PLZ-qp-kER" secondAttribute="height" multiplier="1:1.5" id="eZ4-VO-1K2"/>
+                                    <constraint firstAttribute="width" secondItem="PLZ-qp-kER" secondAttribute="height" multiplier="0.7:1" id="eZ4-VO-1K2"/>
                                     <constraint firstAttribute="width" constant="100" id="kr3-TY-erM"/>
                                 </constraints>
                             </imageView>
@@ -213,6 +213,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O0b-7W-2ms"/>
                     </view>
+                    <connections>
+                        <outlet property="movieImageView" destination="PLZ-qp-kER" id="pdx-Oo-RI7"/>
+                        <outlet property="ratingLabel" destination="gqk-pt-XuL" id="vCC-bk-lgx"/>
+                        <outlet property="titleLabel" destination="gMK-4S-Roq" id="poi-JX-CHe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDK-Ma-oNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -242,5 +247,8 @@
             <point key="canvasLocation" x="-9" y="257"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder.png" width="150" height="180"/>
+    </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
