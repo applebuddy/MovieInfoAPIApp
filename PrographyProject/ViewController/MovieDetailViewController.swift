@@ -9,9 +9,11 @@
 import UIKit
 
 class MovieDetailViewController: UIViewController {
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var movieImageView: UIImageView!
-    @IBOutlet var ratingLabel: UILabel!
+    // MARK: - IBOutlet UI
+
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var movieImageView: UIImageView!
+    @IBOutlet private var ratingLabel: UILabel!
 
     // MARK: - Life Cycle¡
 

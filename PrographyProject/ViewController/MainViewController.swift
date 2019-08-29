@@ -11,12 +11,12 @@ import UIKit
 class MainViewController: UIViewController {
     // MARK: IBOutlet UI
 
-    @IBOutlet var ratingSelectButton: UIButton!
-    @IBOutlet var presentToMovieListButton: UIButton!
+    @IBOutlet private var ratingSelectButton: UIButton!
+    @IBOutlet private var presentToMovieListButton: UIButton!
 
     // MARK: - UI
 
-    let ratingAlertController: RatingAlertController = {
+    private let ratingAlertController: RatingAlertController = {
         let ratingAlertController = RatingAlertController(title: "별점 선택", message: "별점을 선택해주시기 바랍니다.", preferredStyle: .actionSheet)
         return ratingAlertController
     }()
@@ -30,13 +30,13 @@ class MainViewController: UIViewController {
         configurePresentToMovieListButton()
     }
 
-    func configureRatingAlertController() {
+    private func configureRatingAlertController() {
         ratingAlertController.ratingPickerView.delegate = self
         ratingAlertController.ratingPickerView.dataSource = self
         ratingAlertController.ratingPickerView.selectRow(5, inComponent: 0, animated: false)
     }
 
-    func configurePresentToMovieListButton() {
+    private func configurePresentToMovieListButton() {
         presentToMovieListButton.layer.cornerRadius = 10
         presentToMovieListButton.layer.shadowRadius = 3
         presentToMovieListButton.layer.shadowOffset = .zero
@@ -45,17 +45,17 @@ class MainViewController: UIViewController {
 
     // MARK: Present
 
-    func presentRatingPickerView() {
+    private func presentRatingPickerView() {
         present(ratingAlertController, animated: true, completion: nil)
     }
 
     // MARK: IBAction
 
-    @IBAction func ratingSelectButtonPressed(_: UIButton) {
+    @IBAction private func ratingSelectButtonPressed(_: UIButton) {
         presentRatingPickerView()
     }
 
-    @IBAction func presentToMovieListView(_: UIButton) {
+    @IBAction private func presentToMovieListView(_: UIButton) {
         performSegue(withIdentifier: SegueIdentifier.goToMovieList, sender: nil)
     }
 }

@@ -147,9 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				07FB32B62317DA3B006B764D /* MovieData.swift */,
-				07FB32C02317F7E2006B764D /* CellIdentifier.swift */,
-				07FB32C22317F83B006B764D /* SegueIdentifier.swift */,
-				07FB32C42317FB19006B764D /* CellHeight.swift */,
+				07FB32C8231808B4006B764D /* Constant */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,6 +180,16 @@
 				07FB328B2317D6E8006B764D /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		07FB32C8231808B4006B764D /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				07FB32C02317F7E2006B764D /* CellIdentifier.swift */,
+				07FB32C22317F83B006B764D /* SegueIdentifier.swift */,
+				07FB32C42317FB19006B764D /* CellHeight.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -24,16 +24,16 @@ class RatingAlertController: UIAlertController {
         makeAlertAction()
     }
 
-    func makeAlertAction() {
+    private func makeAlertAction() {
         let ratingAlertAction = UIAlertAction(title: "선택", style: .default, handler: nil)
         addAction(ratingAlertAction)
     }
 
-    func makeSubviews() {
+    private func makeSubviews() {
         view.addSubview(ratingPickerView)
     }
 
-    func makeConstraints() {
+    private func makeConstraints() {
         ratingPickerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             ratingPickerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50),

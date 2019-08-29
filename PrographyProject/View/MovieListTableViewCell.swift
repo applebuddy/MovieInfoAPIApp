@@ -11,9 +11,9 @@ import UIKit
 class MovieListTableViewCell: UITableViewCell {
     // MARK: - IBOutlet UI
 
-    @IBOutlet var movieImageView: UIImageView!
-    @IBOutlet var movieTitleLabel: UILabel!
-    @IBOutlet var movieRatingLabel: UILabel!
+    @IBOutlet private var movieImageView: UIImageView!
+    @IBOutlet private var movieTitleLabel: UILabel!
+    @IBOutlet private var movieRatingLabel: UILabel!
 
     // MARK: - Init
 

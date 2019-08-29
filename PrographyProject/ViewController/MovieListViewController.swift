@@ -11,7 +11,7 @@ import UIKit
 class MovieListViewController: UIViewController {
     // MARK: - Outlet UI
 
-    @IBOutlet var movieListTableView: UITableView!
+    @IBOutlet private var movieListTableView: UITableView!
 
     // MARK: - Life Cycle
 
@@ -24,7 +24,7 @@ class MovieListViewController: UIViewController {
 
     // MARK: - Setting
 
-    func makeMovieListTableView() {
+    private func makeMovieListTableView() {
         movieListTableView.dataSource = self
         movieListTableView.delegate = self
     }
