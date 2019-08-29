@@ -95,7 +95,7 @@ class MainViewController: UIViewController {
     }
 
     @IBAction private func presentToMovieListView(_: UIButton) {
-        RequestAPI.shared.requestMovieData(rating: RatingPickerViewData.defaultRowIndex) { movieData in
+        RequestAPI.shared.requestMovieData(rating: selectedRatingPickerViewRowIndex) { movieData in
             guard let movieData = movieData else { return }
 
             MovieCommonData.shared.setMovieAPIData(movieData: movieData)
