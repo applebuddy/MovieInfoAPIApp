@@ -22,7 +22,7 @@ final class RequestAPI {
         let dataURLString: String = "https://yts.lt/api/v2/list_movies.json?minimum_rating=\(rating)"
 
         guard let dataURL: URL = URL(string: dataURLString) else {
-            let errorString = "couldn't get URL data"
+            let errorString = "(couldn't get URL data)"
             delegate?.movieRequestDidError(self, errorString)
             return
         }
@@ -31,14 +31,14 @@ final class RequestAPI {
         let dataTask: URLSessionDataTask = session.dataTask(with: dataURL) { data, _, error in
 
             if let error = error {
-                let errorString = "datatask error Occurred: \(error.localizedDescription)"
+                let errorString = "(datatask error Occurred: \(error.localizedDescription))"
                 self.delegate?.movieRequestDidError(self, errorString)
                 completion(nil)
                 return
             }
 
             guard let data = data else {
-                let errorString = "data error Occurred"
+                let errorString = "(data error Occurred)"
                 self.delegate?.movieRequestDidError(self, errorString)
                 completion(nil)
                 return
@@ -49,7 +49,7 @@ final class RequestAPI {
                 let moviesAPIResponse: MovieResponse = try JSONDecoder().decode(MovieResponse.self, from: data)
                 completion(moviesAPIResponse)
             } catch {
-                let errorString = "API Request Failed : \(error.localizedDescription)"
+                let errorString = "(API Request Failed : \(error.localizedDescription))"
                 self.delegate?.movieRequestDidError(self, errorString)
                 completion(nil)
             }

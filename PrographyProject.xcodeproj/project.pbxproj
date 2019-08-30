@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		07451CD523186707002DD814 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07451CD423186707002DD814 /* UILabel+.swift */; };
 		07451CD82318698C002DD814 /* RequestAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07451CD72318698C002DD814 /* RequestAPIDelegate.swift */; };
+		07C4869723194C2D007AC8DD /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C4869623194C2D007AC8DD /* UIViewController+.swift */; };
 		07FB32832317D6E7006B764D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32822317D6E7006B764D /* AppDelegate.swift */; };
 		07FB32852317D6E7006B764D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32842317D6E7006B764D /* MainViewController.swift */; };
 		07FB32882317D6E7006B764D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FB32862317D6E7006B764D /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		07451CD423186707002DD814 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		07451CD72318698C002DD814 /* RequestAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIDelegate.swift; sourceTree = "<group>"; };
+		07C4869623194C2D007AC8DD /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		07FB327F2317D6E7006B764D /* PrographyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrographyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07FB32822317D6E7006B764D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07FB32842317D6E7006B764D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				07451CD423186707002DD814 /* UILabel+.swift */,
+				07C4869623194C2D007AC8DD /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			files = (
 				07FB32B32317D9F2006B764D /* MovieDetailViewController.swift in Sources */,
 				07FB32B12317D9E5006B764D /* MovieListViewController.swift in Sources */,
+				07C4869723194C2D007AC8DD /* UIViewController+.swift in Sources */,
 				07FB32852317D6E7006B764D /* MainViewController.swift in Sources */,
 				07FB32C12317F7E2006B764D /* CellIdentifier.swift in Sources */,
 				07FB32BF2317F774006B764D /* MovieListTableViewCell.swift in Sources */,
