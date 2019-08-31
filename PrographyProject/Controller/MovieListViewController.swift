@@ -45,7 +45,7 @@ extension MovieListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let movieListCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.movieListTableViewCell, for: indexPath) as? MovieListTableViewCell,
-            let movieData = MovieCommonData.shared.getMovieAPIData(index: indexPath.row) else { return UITableViewCell() }
+            let movieData = MovieCommonData.shared.getMovieData(index: indexPath.row) else { return UITableViewCell() }
         movieListCell.configureCell(movieData: movieData)
         return movieListCell
     }

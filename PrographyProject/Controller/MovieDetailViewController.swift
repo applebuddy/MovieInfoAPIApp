@@ -21,8 +21,6 @@ class MovieDetailViewController: UIViewController {
         super.viewDidLoad()
         setTitleLabel()
         setLabelWithMovieData()
-
-        // Do any additional setup after loading the view.
     }
 
     // MARK: - Setting
@@ -33,8 +31,9 @@ class MovieDetailViewController: UIViewController {
     }
 
     private func setLabelWithMovieData() {
-        guard let movieData = MovieCommonData.shared.getSelectedMovieData() else { return }
+        guard let movieData = MovieCommonData.shared.selectedMovieData else { return }
         titleLabel.text = movieData.title
         ratingLabel.text = "평점 : \(movieData.rating)"
+        movieImageView.setThumbnailImageFromCache(movieData.image, placeHolder: ImageData.thumbnailPlaceHolder)
     }
 }

@@ -22,7 +22,7 @@ final class RequestAPI {
         let dataURLString: String = "https://yts.lt/api/v2/list_movies.json?minimum_rating=\(rating)"
 
         guard let dataURL: URL = URL(string: dataURLString) else {
-            let errorString = "(couldn't get URL data)"
+            let errorString = "couldn't get URL data"
             delegate?.movieRequestDidError(self, errorString)
             return
         }
