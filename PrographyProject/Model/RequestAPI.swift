@@ -17,13 +17,13 @@ final class RequestAPI {
     weak var delegate: RequestMovieAPIDelegate?
 
     func requestMovieData(rating: Int, completion: @escaping (MovieResponse?) -> Void) {
-        delegate?.movieRequestDidBegin(self)
+        delegate?.movieRequestDidBegin()
         /// * API 요청 시 사용하는 URL String Format
         let dataURLString: String = "https://yts.lt/api/v2/list_movies.json?minimum_rating=\(rating)"
 
         guard let dataURL: URL = URL(string: dataURLString) else {
             let errorString = "couldn't get URL data"
-            delegate?.movieRequestDidError(self, errorString)
+            delegate?.movieRequestDidError(errorString)
             return
         }
 
@@ -32,25 +32,25 @@ final class RequestAPI {
 
             if let error = error {
                 let errorString = "(datatask error Occurred: \(error.localizedDescription))"
-                self.delegate?.movieRequestDidError(self, errorString)
+                self.delegate?.movieRequestDidError(errorString)
                 completion(nil)
                 return
             }
 
             guard let data = data else {
                 let errorString = "(data error Occurred)"
-                self.delegate?.movieRequestDidError(self, errorString)
+                self.delegate?.movieRequestDidError(errorString)
                 completion(nil)
                 return
             }
 
             do {
-                self.delegate?.movieRequestDidFinished(self)
+                self.delegate?.movieRequestDidFinished()
                 let moviesAPIResponse: MovieResponse = try JSONDecoder().decode(MovieResponse.self, from: data)
                 completion(moviesAPIResponse)
             } catch {
                 let errorString = "(API Request Failed : \(error.localizedDescription))"
-                self.delegate?.movieRequestDidError(self, errorString)
+                self.delegate?.movieRequestDidError(errorString)
                 completion(nil)
             }
         }

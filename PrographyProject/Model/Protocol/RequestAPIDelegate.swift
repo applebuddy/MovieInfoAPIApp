@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RequestMovieAPIDelegate: class {
-    func movieRequestDidBegin(_ requestAPI: RequestAPI)
-    func movieRequestDidFinished(_ requestAPI: RequestAPI)
-    func movieRequestDidError(_ requestAPI: RequestAPI, _ errorDescription: String)
+    func movieRequestDidBegin()
+    func movieRequestDidFinished()
+    func movieRequestDidError(_ errorDescription: String)
 }

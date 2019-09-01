@@ -146,15 +146,15 @@ extension MainViewController: UIPickerViewDataSource {
 }
 
 extension MainViewController: RequestMovieAPIDelegate {
-    func movieRequestDidBegin(_: RequestAPI) {
+    func movieRequestDidBegin() {
         isAPIDataRequested = true
     }
 
-    func movieRequestDidFinished(_: RequestAPI) {
+    func movieRequestDidFinished() {
         isAPIDataRequested = false
     }
 
-    func movieRequestDidError(_: RequestAPI, _ errorDescription: String) {
+    func movieRequestDidError(_ errorDescription: String) {
         isAPIDataRequested = false
         debugPrint(errorDescription)
         /// present AlertController about Error
