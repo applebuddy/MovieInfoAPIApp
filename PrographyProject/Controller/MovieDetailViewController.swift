@@ -37,14 +37,22 @@ class MovieDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         movieDetailTableView.delegate = self
         movieDetailTableView.dataSource = self
+        RequestImage.shared.delegate = self
     }
 
     // MARK: - Method
 
     // MARK: Setting
+
+    func checkMovieData(_ imageKey: String) {
+        if imageKey == MovieCommonData.shared.selectedMovieData?.image {
+            isImageDataRequested = false
+            guard let cell = movieDetailTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? MovieDetailTableViewCell else { return }
+            cell.titleImageView.setThumbnailImageFromCache(imageKey, placeHolder: ImageData.thumbnailPlaceHolder)
+        }
+    }
 }
 
 // MARK: - Extension
@@ -72,6 +80,7 @@ extension MovieDetailViewController: UITableViewDataSource {
         guard let movieDetailCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.movieDetailTableViewCell, for: indexPath) as? MovieDetailTableViewCell,
             let movieData = MovieCommonData.shared.selectedMovieData else { return UITableViewCell() }
 
+        isImageDataRequested = true
         movieDetailCell.configureCell(movieData: movieData)
         return movieDetailCell
     }
@@ -84,8 +93,8 @@ extension MovieDetailViewController: RequestImageDelegate {
         isImageDataRequested = true
     }
 
-    func imageRequestDidFinished(_: UIImage) {
-        isImageDataRequested = false
+    func imageRequestDidFinished(_: UIImage, imageKey: String) {
+        checkMovieData(imageKey)
     }
 
     func imageRequestDidError(_ errorDescription: String) {

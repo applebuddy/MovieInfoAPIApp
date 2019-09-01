@@ -49,7 +49,7 @@ final class RequestImage {
         delegate?.imageRequestDidBegin()
 
         if let cachedImage = MovieCommonData.shared.thumbnailImageCache.object(forKey: NSString(string: thumbnailImageURLString)) {
-            delegate?.imageRequestDidFinished(cachedImage)
+            delegate?.imageRequestDidFinished(cachedImage, imageKey: thumbnailImageURLString)
             completion(cachedImage)
         }
 
@@ -71,7 +71,7 @@ final class RequestImage {
                             MovieCommonData.shared.thumbnailImageCache.setObject(thumbnailImage, forKey: NSString(string: thumbnailImageURLString))
 
                             self.removeImageKey(thumbnailImageURLString)
-                            self.delegate?.imageRequestDidFinished(thumbnailImage)
+                            self.delegate?.imageRequestDidFinished(thumbnailImage, imageKey: thumbnailImageURLString)
                             completion(thumbnailImage)
                         }
                     }

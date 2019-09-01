@@ -10,6 +10,6 @@ import UIKit
 
 protocol RequestImageDelegate: class {
     func imageRequestDidBegin()
-    func imageRequestDidFinished(_ requestImage: UIImage)
+    func imageRequestDidFinished(_ requestImage: UIImage, imageKey: String)
     func imageRequestDidError(_ errorDescription: String)
 }

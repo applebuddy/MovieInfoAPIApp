@@ -43,14 +43,18 @@ class MovieListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_: Bool) {
+        super.viewWillAppear(true)
+        RequestImage.shared.delegate = self
+    }
+
     // MARK: - Method
 
     // MARK: Setting
 
     private func setMovieListTableView() {
-        movieListTableView.dataSource = self
         movieListTableView.delegate = self
-        RequestImage.shared.delegate = self
+        movieListTableView.dataSource = self
     }
 
     private func checkImageDataRequest() {
@@ -100,7 +104,7 @@ extension MovieListViewController: RequestImageDelegate {
         isImageDataRequested = true
     }
 
-    func imageRequestDidFinished(_: UIImage) {
+    func imageRequestDidFinished(_: UIImage, imageKey _: String) {
         checkImageDataRequest()
     }
 
