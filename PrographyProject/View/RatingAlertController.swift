@@ -25,7 +25,9 @@ class RatingAlertController: UIAlertController {
         makeAlertAction()
     }
 
-    // MARK: - Setting
+    // MARK: - Method
+
+    // MARK: Setting
 
     private func makeAlertAction() {
         let ratingAlertAction = UIAlertAction(title: "선택", style: .default, handler: nil)

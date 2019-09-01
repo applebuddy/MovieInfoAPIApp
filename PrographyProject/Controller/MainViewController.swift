@@ -68,7 +68,9 @@ class MainViewController: UIViewController {
         setRatingSelectButton()
     }
 
-    // MARK: - Setting
+    // MARK: - Method
+
+    // MARK: Setting
 
     private func setRequestAPIDelegate() {
         RequestAPI.shared.delegate = self
@@ -93,7 +95,7 @@ class MainViewController: UIViewController {
         presentToMovieListButton.layer.shadowOpacity = 1
     }
 
-    // MARK: - Event
+    // MARK: Event
 
     // MARK: Present
 
@@ -113,7 +115,7 @@ class MainViewController: UIViewController {
         }
     }
 
-    // MARK: - IBAction
+    // MARK: IBAction
 
     @IBAction private func ratingSelectButtonPressed(_: UIButton) {
         presentRatingPickerView()
@@ -135,6 +137,8 @@ class MainViewController: UIViewController {
         }
     }
 }
+
+// MARK: - Extension
 
 extension MainViewController: UIPickerViewDelegate {
     func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent _: Int) {

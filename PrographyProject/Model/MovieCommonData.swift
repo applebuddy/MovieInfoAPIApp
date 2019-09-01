@@ -17,10 +17,12 @@ final class MovieCommonData {
     private(set) var moviesData: [Movie]?
     private(set) var selectedMovieData: Movie?
 
-    // 임시적으로 섬네일 이미지의 URL값과 이미지를 저장해두는 이미지캐시 변수
+    /// * 임시적으로 섬네일 이미지의 URL값과 이미지를 저장해두는 이미지캐시 변수
     var thumbnailImageCache = NSCache<NSString, UIImage>()
 
-    // MARK: - Setting
+    // MARK: - Method
+
+    // MARK: Setting
 
     func setMovieAPIData(movieData: MovieResponse) {
         movieResponse = movieData
@@ -34,7 +36,7 @@ final class MovieCommonData {
         selectedMovieData = movieData
     }
 
-    // MARK: - Getting
+    // MARK: Getting
 
     func getMovieData(index: Int) -> Movie? {
         guard let movieData = self.moviesData?[index] else { return nil }

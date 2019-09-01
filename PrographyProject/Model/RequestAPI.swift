@@ -16,6 +16,10 @@ final class RequestAPI {
     /// * Movie API 요청 시 반응하는 MVC 델리게이션 변수
     weak var delegate: RequestMovieAPIDelegate?
 
+    // MARK: - Method
+
+    // MARK: Request API
+
     func requestMovieData(rating: Int, completion: @escaping (MovieResponse?) -> Void) {
         delegate?.movieRequestDidBegin()
         /// * API 요청 시 사용하는 URL String Format

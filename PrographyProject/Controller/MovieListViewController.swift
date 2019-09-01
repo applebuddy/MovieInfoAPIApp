@@ -42,14 +42,22 @@ class MovieListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    // MARK: - Setting
+    // MARK: - Method
+
+    // MARK: Setting
 
     private func setMovieListTableView() {
         movieListTableView.dataSource = self
         movieListTableView.delegate = self
         RequestImage.shared.delegate = self
     }
+
+    private func checkImageDataRequest() {
+        isImageDataRequested = RequestImage.shared.isImageKeyEmpty() ? false : true
+    }
 }
+
+// MARK: - Extension
 
 extension MovieListViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
@@ -82,11 +90,11 @@ extension MovieListViewController: RequestImageDelegate {
     }
 
     func imageRequestDidFinished(_: UIImage) {
-        isImageDataRequested = false
+        checkImageDataRequest()
     }
 
     func imageRequestDidError(_ errorDescription: String) {
-        isImageDataRequested = false
+        checkImageDataRequest()
         presentDefaultAlertController(title: "이미지 로딩 오류", message: "\(errorDescription)")
     }
 }

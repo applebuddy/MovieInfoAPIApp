@@ -23,7 +23,9 @@ class MovieDetailViewController: UIViewController {
         setLabelWithMovieData()
     }
 
-    // MARK: - Setting
+    // MARK: - Method
+
+    // MARK: Setting
 
     private func setTitleLabel() {
         titleLabel.titleNumberOfLines()
