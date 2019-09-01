@@ -37,11 +37,9 @@ class MainViewController: UIViewController {
             DispatchQueue.main.async {
                 if newValue {
                     self.presentToMovieListButton.isEnabled = false
-                    self.activityIndicatorView.isHidden = true
                     self.activityIndicatorView.startAnimating()
                 } else {
                     self.presentToMovieListButton.isEnabled = true
-                    self.activityIndicatorView.isHidden = false
                     self.activityIndicatorView.stopAnimating()
                 }
             }

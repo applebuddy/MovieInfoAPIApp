@@ -11,6 +11,8 @@
 		07451CD82318698C002DD814 /* RequestAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07451CD72318698C002DD814 /* RequestAPIDelegate.swift */; };
 		079B9AD3231A1617006837B6 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B9AD2231A1617006837B6 /* UIImageView+.swift */; };
 		079B9AD5231A16B4006837B6 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B9AD4231A16B4006837B6 /* ImageData.swift */; };
+		07BE8690231BF511001862E8 /* RequestImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE868F231BF511001862E8 /* RequestImageDelegate.swift */; };
+		07BE8692231BF57C001862E8 /* RequestImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE8691231BF57C001862E8 /* RequestImage.swift */; };
 		07C4869723194C2D007AC8DD /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C4869623194C2D007AC8DD /* UIViewController+.swift */; };
 		07FB32832317D6E7006B764D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32822317D6E7006B764D /* AppDelegate.swift */; };
 		07FB32852317D6E7006B764D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32842317D6E7006B764D /* MainViewController.swift */; };
@@ -54,6 +56,8 @@
 		07451CD72318698C002DD814 /* RequestAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIDelegate.swift; sourceTree = "<group>"; };
 		079B9AD2231A1617006837B6 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		079B9AD4231A16B4006837B6 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		07BE868F231BF511001862E8 /* RequestImageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestImageDelegate.swift; sourceTree = "<group>"; };
+		07BE8691231BF57C001862E8 /* RequestImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestImage.swift; sourceTree = "<group>"; };
 		07C4869623194C2D007AC8DD /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		07FB327F2317D6E7006B764D /* PrographyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrographyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07FB32822317D6E7006B764D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				07451CD72318698C002DD814 /* RequestAPIDelegate.swift */,
+				07BE868F231BF511001862E8 /* RequestImageDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				07FB32B62317DA3B006B764D /* MovieAPIData.swift */,
 				07FB32CF23185BF3006B764D /* MovieCommonData.swift */,
 				07FB32C92318125E006B764D /* RequestAPI.swift */,
+				07BE8691231BF57C001862E8 /* RequestImage.swift */,
 				07451CD623186972002DD814 /* Protocol */,
 				07451CD3231866FC002DD814 /* Extension */,
 				07FB32C8231808B4006B764D /* Constant */,
@@ -363,6 +369,7 @@
 			files = (
 				07FB32B32317D9F2006B764D /* MovieDetailViewController.swift in Sources */,
 				07FB32B12317D9E5006B764D /* MovieListViewController.swift in Sources */,
+				07BE8690231BF511001862E8 /* RequestImageDelegate.swift in Sources */,
 				07C4869723194C2D007AC8DD /* UIViewController+.swift in Sources */,
 				07FB32852317D6E7006B764D /* MainViewController.swift in Sources */,
 				07FB32C12317F7E2006B764D /* CellIdentifier.swift in Sources */,
@@ -371,6 +378,7 @@
 				07FB32C52317FB19006B764D /* CellHeight.swift in Sources */,
 				079B9AD3231A1617006837B6 /* UIImageView+.swift in Sources */,
 				07FB32832317D6E7006B764D /* AppDelegate.swift in Sources */,
+				07BE8692231BF57C001862E8 /* RequestImage.swift in Sources */,
 				07451CD82318698C002DD814 /* RequestAPIDelegate.swift in Sources */,
 				079B9AD5231A16B4006837B6 /* ImageData.swift in Sources */,
 				07FB32C32317F83B006B764D /* SegueIdentifier.swift in Sources */,

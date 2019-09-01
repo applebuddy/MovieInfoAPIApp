@@ -11,6 +11,7 @@ import UIKit
 class MovieListViewController: UIViewController {
     // MARK: - IBOutlet UI
 
+    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet private var movieListTableView: UITableView!
 
     // MARK: - Property
@@ -18,6 +19,18 @@ class MovieListViewController: UIViewController {
     /// * MovieListTableViewCell Type Property Data
     fileprivate struct CellData {
         static let defaultRowCount = 10
+    }
+
+    private var isImageDataRequested: Bool = false {
+        willSet {
+            DispatchQueue.main.async {
+                if newValue {
+                    self.activityIndicatorView.startAnimating()
+                } else {
+                    self.activityIndicatorView.stopAnimating()
+                }
+            }
+        }
     }
 
     // MARK: - Life Cycle
@@ -34,6 +47,7 @@ class MovieListViewController: UIViewController {
     private func setMovieListTableView() {
         movieListTableView.dataSource = self
         movieListTableView.delegate = self
+        RequestImage.shared.delegate = self
     }
 }
 
@@ -59,5 +73,20 @@ extension MovieListViewController: UITableViewDelegate {
 
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return CellHeight.movieListCell
+    }
+}
+
+extension MovieListViewController: RequestImageDelegate {
+    func imageRequestDidBegin() {
+        isImageDataRequested = true
+    }
+
+    func imageRequestDidFinished(_: UIImage) {
+        isImageDataRequested = false
+    }
+
+    func imageRequestDidError(_ errorDescription: String) {
+        isImageDataRequested = false
+        debugPrint("\(errorDescription)")
     }
 }
