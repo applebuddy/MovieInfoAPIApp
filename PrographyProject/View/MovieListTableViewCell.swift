@@ -40,5 +40,6 @@ class MovieListTableViewCell: UITableViewCell {
     func configureCell(movieData: Movie) {
         movieTitleLabel.text = "\(movieData.title)"
         movieRatingLabel.text = "평점 : \(movieData.rating)"
+        movieImageView.setThumbnailImageFromServerURL(movieData.image, placeHolder: ImageData.thumbnailPlaceHolder)
     }
 }

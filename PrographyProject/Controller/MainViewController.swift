@@ -18,7 +18,7 @@ class MainViewController: UIViewController {
     // MARK: - UI
 
     private let ratingAlertController: RatingAlertController = {
-        let ratingAlertController = RatingAlertController(title: "별점 선택", message: "별점을 선택해주시기 바랍니다.", preferredStyle: .actionSheet)
+        let ratingAlertController = RatingAlertController(title: "평점 선택", message: "평점을 선택해주시기 바랍니다.", preferredStyle: .actionSheet)
         return ratingAlertController
     }()
 
@@ -36,10 +36,10 @@ class MainViewController: UIViewController {
         willSet {
             DispatchQueue.main.async {
                 if newValue {
-                    self.activityIndicatorView.isHidden = true
+                    self.presentToMovieListButton.isEnabled = false
                     self.activityIndicatorView.startAnimating()
                 } else {
-                    self.activityIndicatorView.isHidden = false
+                    self.presentToMovieListButton.isEnabled = true
                     self.activityIndicatorView.stopAnimating()
                 }
             }
@@ -82,26 +82,43 @@ class MainViewController: UIViewController {
         presentToMovieListButton.layer.shadowOpacity = 1
     }
 
+    // MARK: - Event
+
     // MARK: Present
 
     private func presentRatingPickerView() {
         present(ratingAlertController, animated: true, completion: nil)
     }
 
-    // MARK: IBAction
+    // MARK: Check
+
+    private func isRatingSelectButtonSelected() -> Bool {
+        if ratingSelectButton.titleColor(for: .normal) == .black {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    // MARK: - IBAction
 
     @IBAction private func ratingSelectButtonPressed(_: UIButton) {
         presentRatingPickerView()
     }
 
     @IBAction private func presentToMovieListView(_: UIButton) {
-        RequestAPI.shared.requestMovieData(rating: selectedRatingPickerViewRowIndex) { movieData in
-            guard let movieData = movieData else { return }
+        if isRatingSelectButtonSelected() {
+            RequestAPI.shared.requestMovieData(rating: selectedRatingPickerViewRowIndex) { movieData in
+                guard let movieData = movieData else { return }
 
-            MovieCommonData.shared.setMovieAPIData(movieData: movieData)
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: SegueIdentifier.goToMovieList, sender: nil)
+                MovieCommonData.shared.setMovieAPIData(movieData: movieData)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: SegueIdentifier.goToMovieList, sender: nil)
+                }
             }
+        } else {
+            /// present AlertController requesting setting
+            presentDefaultAlertController(title: "최소 평점 미설정", message: "최소 평점을 설정해주세요.")
         }
     }
 }
@@ -140,5 +157,7 @@ extension MainViewController: RequestMovieAPIDelegate {
     func movieRequestDidError(_: RequestAPI, _ errorDescription: String) {
         isAPIDataRequested = false
         debugPrint(errorDescription)
+        /// present AlertController about Error
+        presentDefaultAlertController(title: "데이터 요청 실패", message: "데이터 요청에 실패했습니다. \(errorDescription)")
     }
 }

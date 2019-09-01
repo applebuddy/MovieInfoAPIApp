@@ -15,7 +15,10 @@ final class MovieCommonData {
 
     private var movieResponse: MovieResponse?
     private var moviesData: [Movie]?
-    private var selectedMovieData: Movie?
+    private(set) var selectedMovieData: Movie?
+
+    // 임시적으로 섬네일 이미지의 URL값과 이미지를 저장해두는 이미지캐시 변수
+    var thumbnailImageCache = NSCache<NSString, UIImage>()
 
     // MARK: - Setting
 
@@ -38,12 +41,8 @@ final class MovieCommonData {
         return moviesData
     }
 
-    func getMovieAPIData(index: Int) -> Movie? {
+    func getMovieData(index: Int) -> Movie? {
         guard let movieData = self.moviesData?[index] else { return nil }
         return movieData
-    }
-
-    func getSelectedMovieData() -> Movie? {
-        return selectedMovieData
     }
 }

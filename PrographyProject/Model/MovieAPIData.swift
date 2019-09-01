@@ -39,8 +39,10 @@ struct DataClass: Codable {
 struct Movie: Codable {
     let title: String
     let rating: Double
+    let image: String
 
     enum CodingKeys: String, CodingKey {
+        case image = "medium_cover_image"
         case title, rating
     }
 }
