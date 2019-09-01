@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		07451CD523186707002DD814 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07451CD423186707002DD814 /* UILabel+.swift */; };
 		07451CD82318698C002DD814 /* RequestAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07451CD72318698C002DD814 /* RequestAPIDelegate.swift */; };
+		07670E33231C32A500894718 /* MovieDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07670E32231C32A500894718 /* MovieDetailTableViewCell.swift */; };
 		079B9AD3231A1617006837B6 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B9AD2231A1617006837B6 /* UIImageView+.swift */; };
 		079B9AD5231A16B4006837B6 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B9AD4231A16B4006837B6 /* ImageData.swift */; };
 		07BE8690231BF511001862E8 /* RequestImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE868F231BF511001862E8 /* RequestImageDelegate.swift */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		07451CD423186707002DD814 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		07451CD72318698C002DD814 /* RequestAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIDelegate.swift; sourceTree = "<group>"; };
+		07670E32231C32A500894718 /* MovieDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailTableViewCell.swift; sourceTree = "<group>"; };
 		079B9AD2231A1617006837B6 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		079B9AD4231A16B4006837B6 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		07BE868F231BF511001862E8 /* RequestImageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestImageDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				07FB32BB2317EADB006B764D /* RatingAlertController.swift */,
 				07FB32BE2317F774006B764D /* MovieListTableViewCell.swift */,
+				07670E32231C32A500894718 /* MovieDetailTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				07451CD82318698C002DD814 /* RequestAPIDelegate.swift in Sources */,
 				079B9AD5231A16B4006837B6 /* ImageData.swift in Sources */,
 				07FB32C32317F83B006B764D /* SegueIdentifier.swift in Sources */,
+				07670E33231C32A500894718 /* MovieDetailTableViewCell.swift in Sources */,
 				07FB32D023185BF3006B764D /* MovieCommonData.swift in Sources */,
 				07FB32BC2317EADB006B764D /* RatingAlertController.swift in Sources */,
 				07451CD523186707002DD814 /* UILabel+.swift in Sources */,

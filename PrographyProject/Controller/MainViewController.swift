@@ -140,11 +140,15 @@ class MainViewController: UIViewController {
 
 // MARK: - Extension
 
+// MARK: UIPickerViewDelegate
+
 extension MainViewController: UIPickerViewDelegate {
     func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
         selectedRatingPickerViewRowIndex = row
     }
 }
+
+// MARK: UIPickerViewDataSource
 
 extension MainViewController: UIPickerViewDataSource {
     func numberOfComponents(in _: UIPickerView) -> Int {
@@ -159,6 +163,8 @@ extension MainViewController: UIPickerViewDataSource {
         return "\(row)점"
     }
 }
+
+// MARK: RequestMovieAPIDelegate
 
 extension MainViewController: RequestMovieAPIDelegate {
     func movieRequestDidBegin() {

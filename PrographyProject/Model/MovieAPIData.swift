@@ -40,9 +40,10 @@ struct Movie: Codable {
     let title: String
     let rating: Double
     let image: String
+    let summary: String
 
     enum CodingKeys: String, CodingKey {
         case image = "medium_cover_image"
-        case title, rating
+        case title, rating, summary
     }
 }

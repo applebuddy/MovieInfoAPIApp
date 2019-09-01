@@ -10,4 +10,5 @@ import Foundation
 
 struct CellIdentifier {
     static let movieListTableViewCell = "movieListTableViewCell"
+    static let movieDetailTableViewCell = "movieDetailTableViewCell"
 }

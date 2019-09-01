@@ -18,6 +18,7 @@ class MovieListViewController: UIViewController {
 
     /// * MovieListTableViewCell Type Property Data
     fileprivate struct CellData {
+        static let defaultSectionCount = 1
         static let defaultRowCount = 10
     }
 
@@ -59,7 +60,13 @@ class MovieListViewController: UIViewController {
 
 // MARK: - Extension
 
+// MARK: UITableViewDataSource
+
 extension MovieListViewController: UITableViewDataSource {
+    func numberOfSections(in _: UITableView) -> Int {
+        return CellData.defaultSectionCount
+    }
+
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         guard let moviesData = MovieCommonData.shared.moviesData else { return CellData.defaultRowCount }
         return moviesData.count > CellData.defaultRowCount ? CellData.defaultRowCount : moviesData.count
@@ -73,6 +80,8 @@ extension MovieListViewController: UITableViewDataSource {
     }
 }
 
+// MARK: UITableViewDelegate
+
 extension MovieListViewController: UITableViewDelegate {
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         MovieCommonData.shared.setSelectedMovieData(index: indexPath.row)
@@ -83,6 +92,8 @@ extension MovieListViewController: UITableViewDelegate {
         return CellHeight.movieListCell
     }
 }
+
+// MARK: RequestImageDelegate
 
 extension MovieListViewController: RequestImageDelegate {
     func imageRequestDidBegin() {
