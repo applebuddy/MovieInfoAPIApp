@@ -28,7 +28,6 @@ class MovieListTableViewCell: UITableViewCell {
     // MARK: Setting
 
     override func setSelected(_: Bool, animated _: Bool) {
-//        super.setSelected(selected, animated: animated)
         if isSelected {
             isSelected.toggle()
         }

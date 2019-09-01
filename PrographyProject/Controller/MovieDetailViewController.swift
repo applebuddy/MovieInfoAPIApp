@@ -49,9 +49,13 @@ class MovieDetailViewController: UIViewController {
     func checkMovieData(_ imageKey: String) {
         if imageKey == MovieCommonData.shared.selectedMovieData?.image {
             isImageDataRequested = false
-            guard let cell = movieDetailTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? MovieDetailTableViewCell else { return }
-            cell.titleImageView.setThumbnailImageFromCache(imageKey, placeHolder: ImageData.thumbnailPlaceHolder)
+            configureCellTitleImage(imageKey)
         }
+    }
+
+    func configureCellTitleImage(_ imageKey: String) {
+        guard let cell = movieDetailTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? MovieDetailTableViewCell else { return }
+        cell.titleImageView.setThumbnailImageFromCache(imageKey, placeHolder: ImageData.thumbnailPlaceHolder)
     }
 }
 
