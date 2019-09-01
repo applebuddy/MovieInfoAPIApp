@@ -25,12 +25,23 @@ class MainViewController: UIViewController {
     // MARK: - Property
 
     fileprivate struct RatingPickerViewData {
-        static let componentCount = 1
-        static let rowCount = 10
-        static let defaultRowIndex = 5
+        static let componentCount: Int = 1
+        static let rowCount: Int = 10
+        static let defaultRowIndex: Int = 5
     }
 
-    private var selectedRatingPickerViewRowIndex = RatingPickerViewData.defaultRowIndex
+    private var ratingPickerViewRowIndex: Int = 0
+    private var selectedRatingPickerViewRowIndex: Int {
+        get {
+            return ratingPickerViewRowIndex
+        }
+
+        set {
+            ratingPickerViewRowIndex = newValue
+            ratingSelectButton.setTitle(" \(newValue)점", for: .normal)
+            ratingSelectButton.setTitleColor(UIColor.black, for: .normal)
+        }
+    }
 
     private var isAPIDataRequested: Bool = false {
         willSet {
@@ -87,7 +98,9 @@ class MainViewController: UIViewController {
     // MARK: Present
 
     private func presentRatingPickerView() {
-        present(ratingAlertController, animated: true, completion: nil)
+        present(ratingAlertController, animated: true, completion: {
+            self.selectedRatingPickerViewRowIndex = RatingPickerViewData.defaultRowIndex
+        })
     }
 
     // MARK: Check
@@ -125,9 +138,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UIPickerViewDelegate {
     func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
-        ratingSelectButton.setTitleColor(UIColor.black, for: .normal)
         selectedRatingPickerViewRowIndex = row
-        ratingSelectButton.setTitle(" \(row)점", for: .normal)
     }
 }
 
@@ -156,7 +167,6 @@ extension MainViewController: RequestMovieAPIDelegate {
 
     func movieRequestDidError(_ errorDescription: String) {
         isAPIDataRequested = false
-        debugPrint(errorDescription)
         /// present AlertController about Error
         presentDefaultAlertController(title: "데이터 요청 실패", message: "데이터 요청에 실패했습니다. \(errorDescription)")
     }

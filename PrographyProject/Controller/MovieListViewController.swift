@@ -53,7 +53,7 @@ class MovieListViewController: UIViewController {
 
 extension MovieListViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        guard let moviesData = MovieCommonData.shared.getMoviesData() else { return CellData.defaultRowCount }
+        guard let moviesData = MovieCommonData.shared.moviesData else { return CellData.defaultRowCount }
         return moviesData.count > CellData.defaultRowCount ? CellData.defaultRowCount : moviesData.count
     }
 
@@ -87,6 +87,6 @@ extension MovieListViewController: RequestImageDelegate {
 
     func imageRequestDidError(_ errorDescription: String) {
         isImageDataRequested = false
-        debugPrint("\(errorDescription)")
+        presentDefaultAlertController(title: "이미지 로딩 오류", message: "\(errorDescription)")
     }
 }
