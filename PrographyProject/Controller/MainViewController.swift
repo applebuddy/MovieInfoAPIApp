@@ -59,9 +59,14 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setRequestAPIDelegate()
-        setRatingAlertController()
         setPresentToMovieListButton()
         setRatingSelectButton()
+    }
+
+    override func viewWillAppear(_: Bool) {
+        super.viewWillAppear(true)
+        stopMoviesDataLoading()
+        setRatingAlertController()
     }
 
     // MARK: - Method
