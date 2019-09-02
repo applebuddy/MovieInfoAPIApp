@@ -104,7 +104,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r75-WX-6Mz">
                                                     <rect key="frame" x="30" y="15" width="354" height="100"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="MT9-t1-leS">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="MT9-t1-leS">
                                                             <rect key="frame" x="0.0" y="0.0" width="70" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="MuM-ej-a88"/>
@@ -211,21 +211,21 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lgw-dt-UKU">
-                                                            <rect key="frame" x="0.0" y="80" width="334" height="120"/>
+                                                            <rect key="frame" x="0.0" y="80" width="334" height="160"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="oNH-Dl-3Vb">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="oNH-Dl-3Vb">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="105" height="150"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="120" id="dPT-MM-JB9"/>
-                                                                        <constraint firstAttribute="width" constant="90" id="oyJ-5e-SEz"/>
+                                                                        <constraint firstAttribute="height" constant="150" id="dPT-MM-JB9"/>
+                                                                        <constraint firstAttribute="width" constant="105" id="oyJ-5e-SEz"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평점 : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnL-8U-I0l">
-                                                                    <rect key="frame" x="110" y="0.0" width="224" height="30"/>
+                                                                    <rect key="frame" x="125" y="0.0" width="209" height="50"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="5Zw-aO-Ozm"/>
+                                                                        <constraint firstAttribute="height" constant="50" id="5Zw-aO-Ozm"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -234,12 +234,12 @@
                                                                 <constraint firstItem="fnL-8U-I0l" firstAttribute="top" secondItem="lgw-dt-UKU" secondAttribute="top" id="EEj-aI-E0T"/>
                                                                 <constraint firstItem="oNH-Dl-3Vb" firstAttribute="top" secondItem="lgw-dt-UKU" secondAttribute="top" id="QVe-jy-wEz"/>
                                                                 <constraint firstItem="oNH-Dl-3Vb" firstAttribute="leading" secondItem="lgw-dt-UKU" secondAttribute="leading" id="Z18-nP-uJ2"/>
-                                                                <constraint firstAttribute="height" constant="120" id="tL2-B1-O0P"/>
+                                                                <constraint firstAttribute="height" constant="160" id="tL2-B1-O0P"/>
                                                                 <constraint firstAttribute="trailing" secondItem="fnL-8U-I0l" secondAttribute="trailing" id="wy6-lw-wIG"/>
                                                             </constraints>
                                                         </stackView>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1B-h9-znS">
-                                                            <rect key="frame" x="0.0" y="220" width="334" height="260"/>
+                                                            <rect key="frame" x="0.0" y="260" width="334" height="220"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -335,7 +335,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="placeholder.png" width="150" height="180"/>
+        <image name="placeholder" width="100" height="120"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

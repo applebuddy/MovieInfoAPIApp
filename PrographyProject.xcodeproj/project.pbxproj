@@ -30,7 +30,6 @@
 		07FB32C12317F7E2006B764D /* CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32C02317F7E2006B764D /* CellIdentifier.swift */; };
 		07FB32C32317F83B006B764D /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32C22317F83B006B764D /* SegueIdentifier.swift */; };
 		07FB32C52317FB19006B764D /* CellHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32C42317FB19006B764D /* CellHeight.swift */; };
-		07FB32C723180082006B764D /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FB32C623180082006B764D /* placeholder.png */; };
 		07FB32CA2318125E006B764D /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32C92318125E006B764D /* RequestAPI.swift */; };
 		07FB32D023185BF3006B764D /* MovieCommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB32CF23185BF3006B764D /* MovieCommonData.swift */; };
 /* End PBXBuildFile section */
@@ -82,7 +81,6 @@
 		07FB32C02317F7E2006B764D /* CellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifier.swift; sourceTree = "<group>"; };
 		07FB32C22317F83B006B764D /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		07FB32C42317FB19006B764D /* CellHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHeight.swift; sourceTree = "<group>"; };
-		07FB32C623180082006B764D /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		07FB32C92318125E006B764D /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		07FB32CF23185BF3006B764D /* MovieCommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCommonData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,7 +219,6 @@
 			children = (
 				07FB32862317D6E7006B764D /* Main.storyboard */,
 				07FB32892317D6E8006B764D /* Assets.xcassets */,
-				07FB32C623180082006B764D /* placeholder.png */,
 				07FB328B2317D6E8006B764D /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
@@ -343,7 +340,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				07FB328D2317D6E8006B764D /* LaunchScreen.storyboard in Resources */,
-				07FB32C723180082006B764D /* placeholder.png in Resources */,
 				07FB328A2317D6E8006B764D /* Assets.xcassets in Resources */,
 				07FB32882317D6E7006B764D /* Main.storyboard in Resources */,
 			);
