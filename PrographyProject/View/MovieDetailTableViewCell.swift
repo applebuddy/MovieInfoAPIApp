@@ -20,7 +20,6 @@ class MovieDetailTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        isUserInteractionEnabled = false
         setTitleLabel()
         setSummaryTextView()
     }

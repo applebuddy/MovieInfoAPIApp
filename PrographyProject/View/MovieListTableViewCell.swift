@@ -19,8 +19,13 @@ class MovieListTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
         setMovieTitleLabel()
+    }
+
+    override func prepareForReuse() {
+        movieTitleLabel.text = ""
+        movieRatingLabel.text = ""
+        movieImageView.image = ImageData.thumbnailPlaceHolder
     }
 
     // MARK: - Method

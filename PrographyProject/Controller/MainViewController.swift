@@ -37,9 +37,7 @@ class MainViewController: UIViewController {
         }
 
         set {
-            ratingPickerViewRowIndex = newValue
-            ratingSelectButton.setTitle(" \(newValue)점", for: .normal)
-            ratingSelectButton.setTitleColor(UIColor.black, for: .normal)
+            setRatingValue(newValue)
         }
     }
 
@@ -47,11 +45,9 @@ class MainViewController: UIViewController {
         willSet {
             DispatchQueue.main.async {
                 if newValue {
-                    self.presentToMovieListButton.isEnabled = false
-                    self.activityIndicatorView.startAnimating()
+                    self.startMoviesDataLoading()
                 } else {
-                    self.presentToMovieListButton.isEnabled = true
-                    self.activityIndicatorView.stopAnimating()
+                    self.stopMoviesDataLoading()
                 }
             }
         }
@@ -72,8 +68,26 @@ class MainViewController: UIViewController {
 
     // MARK: Setting
 
+    private func startMoviesDataLoading() {
+        ratingSelectButton.isEnabled = false
+        presentToMovieListButton.isEnabled = false
+        activityIndicatorView.startAnimating()
+    }
+
+    private func stopMoviesDataLoading() {
+        ratingSelectButton.isEnabled = true
+        presentToMovieListButton.isEnabled = true
+        activityIndicatorView.stopAnimating()
+    }
+
     private func setRequestAPIDelegate() {
         RequestAPI.shared.delegate = self
+    }
+
+    private func setRatingValue(_ ratingValue: Int) {
+        ratingPickerViewRowIndex = ratingValue
+        ratingSelectButton.setTitle(" \(ratingValue)점", for: .normal)
+        ratingSelectButton.setTitleColor(UIColor.black, for: .normal)
     }
 
     private func setRatingSelectButton() {

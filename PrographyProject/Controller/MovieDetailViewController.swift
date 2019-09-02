@@ -37,14 +37,19 @@ class MovieDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        movieDetailTableView.delegate = self
-        movieDetailTableView.dataSource = self
+        setMovieDetailTableView()
         RequestImage.shared.delegate = self
     }
 
     // MARK: - Method
 
     // MARK: Setting
+
+    func setMovieDetailTableView() {
+        movieDetailTableView.separatorStyle = .none
+        movieDetailTableView.delegate = self
+        movieDetailTableView.dataSource = self
+    }
 
     func checkMovieData(_ imageKey: String) {
         if imageKey == MovieCommonData.shared.selectedMovieData?.image {
