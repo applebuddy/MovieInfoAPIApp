@@ -12,15 +12,15 @@
 
 ### 앱 기능 
 - MainViewController
-- PickerView로 최소평점을 설정 후 하단 버튼을 누르면 영화정보 API에 데이터를 요청합니다.
-- 데이터 처리 간 API요청 버튼 및 최소평점 설정버튼은 Disabled상태가 되어 중복 API 호출을 방지합니다. 
-- 데이터 수신 성공 시 MovieListViewController로 이동합니다.
+  - PickerView로 최소평점을 설정 후 하단 버튼을 누르면 영화정보 API에 데이터를 요청합니다.
+    - 데이터 처리 간 API요청 버튼 및 최소평점 설정버튼은 Disabled상태가 되어 중복 API 호출을 방지합니다. 
+  - 데이터 수신 성공 시 MovieListViewController로 이동합니다.
 - MovieListViewController
-- MainViewController에서 설정 한 최소평점을 기준, 평점 오름차순으로 영화 데이터를 보여줍니다. 
-- 영화목록은 최대 10개 까지만 보여줍니다.
-- 영화목록 셀 선택 시 해당 영화의 세부 정보를 보여주는 MovieDetailViewController로 이동합니다.
+  - MainViewController에서 설정 한 최소평점을 기준, 평점 오름차순으로 영화 데이터를 보여줍니다. 
+    - 영화목록은 최대 10개 까지만 보여줍니다.
+  - 영화목록 셀 선택 시 해당 영화의 세부 정보를 보여주는 MovieDetailViewController로 이동합니다.
 - MovieDetailViewController
-- 선택한 영화 셀의 세부 영화정보(영화 줄거리, 평점, 이미지)를 보여줍니다.
+  - 선택한 영화 셀의 세부 영화정보(영화 줄거리, 평점, 이미지)를 보여줍니다.
 
 <br>
 
