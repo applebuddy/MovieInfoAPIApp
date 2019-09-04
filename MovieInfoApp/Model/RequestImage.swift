@@ -24,11 +24,11 @@ final class RequestImage {
         return requestingImageKey.isEmpty
     }
 
-    fileprivate func insertImageKey(_ imageKey: String) {
+    private func insertImageKey(_ imageKey: String) {
         requestingImageKey.insert(imageKey)
     }
 
-    fileprivate func removeImageKey(_ imageKey: String) {
+    private func removeImageKey(_ imageKey: String) {
         requestingImageKey.remove(imageKey)
     }
 

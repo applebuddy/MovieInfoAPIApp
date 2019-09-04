@@ -11,7 +11,7 @@ import UIKit
 class MovieListViewController: UIViewController {
     // MARK: - IBOutlet UI
 
-    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet private var movieListTableView: UITableView!
 
     // MARK: - Property
@@ -56,6 +56,8 @@ class MovieListViewController: UIViewController {
         movieListTableView.delegate = self
         movieListTableView.dataSource = self
     }
+
+    // MARK: Check
 
     private func checkImageDataRequest() {
         isImageDataRequested = RequestImage.shared.isImageKeyEmpty() ? false : true

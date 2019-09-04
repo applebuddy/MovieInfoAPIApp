@@ -11,10 +11,10 @@ import UIKit
 class MovieDetailTableViewCell: UITableViewCell {
     // MARK: - IBOutlet UI
 
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var ratingLabel: UILabel!
-    @IBOutlet var titleImageView: UIImageView!
-    @IBOutlet var summaryTextView: UITextView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var ratingLabel: UILabel!
+    @IBOutlet private var titleImageView: UIImageView!
+    @IBOutlet private var summaryTextView: UITextView!
 
     // MARK: - Init
 
@@ -36,6 +36,10 @@ class MovieDetailTableViewCell: UITableViewCell {
     private func setSummaryTextView() {
         summaryTextView.textContainerInset =
             UIEdgeInsets(top: 0, left: -summaryTextView.textContainer.lineFragmentPadding, bottom: 0, right: -summaryTextView.textContainer.lineFragmentPadding)
+    }
+
+    func setTitleImageView(imageKey: String) {
+        titleImageView.setThumbnailImageFromCache(imageKey, placeHolder: ImageData.thumbnailPlaceHolder)
     }
 
     func configureCell(movieData: Movie) {

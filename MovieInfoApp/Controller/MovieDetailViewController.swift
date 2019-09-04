@@ -11,8 +11,8 @@ import UIKit
 class MovieDetailViewController: UIViewController {
     // MARK: - IBOutlet UI
 
-    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
-    @IBOutlet var movieDetailTableView: UITableView!
+    @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private var movieDetailTableView: UITableView!
 
     // MARK: - Property
 
@@ -45,22 +45,22 @@ class MovieDetailViewController: UIViewController {
 
     // MARK: Setting
 
-    func setMovieDetailTableView() {
+    private func setMovieDetailTableView() {
         movieDetailTableView.separatorStyle = .none
         movieDetailTableView.delegate = self
         movieDetailTableView.dataSource = self
     }
 
-    func checkMovieData(_ imageKey: String) {
+    private func checkMovieData(_ imageKey: String) {
         if imageKey == MovieCommonData.shared.selectedMovieData?.image {
             isImageDataRequested = false
             configureCellTitleImage(imageKey)
         }
     }
 
-    func configureCellTitleImage(_ imageKey: String) {
+    private func configureCellTitleImage(_ imageKey: String) {
         guard let cell = movieDetailTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? MovieDetailTableViewCell else { return }
-        cell.titleImageView.setThumbnailImageFromCache(imageKey, placeHolder: ImageData.thumbnailPlaceHolder)
+        cell.setTitleImageView(imageKey: imageKey)
     }
 }
 
